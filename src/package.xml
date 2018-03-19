@@ -16,5 +16,9 @@
         <members>*</members>
         <name>CustomTab</name>
     </types>
+    <types>
+        <members>*</members>
+        <name>layouts</name>
+    </types>
     <version>41.0</version>
 </Package>
