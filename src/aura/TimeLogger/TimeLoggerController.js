@@ -23,8 +23,7 @@
 			sobjectType:'Time__c',
 			Project__c:null,
 			Assignment__c:null,
-			Start_DateTime__c: rightNow,
-			Is_Invoiced__c: false
+			Start_DateTime__c: rightNow
 		};
 		console.log(t);
 		timeList.push(t);
