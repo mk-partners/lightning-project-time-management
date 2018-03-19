@@ -1,0 +1,28 @@
+.THIS .width180{
+	width: 180px;
+}
+.THIS .slds-table tfoot th {
+	background-color: #fafaf9;
+	border-top: 1px solid #dddbda;
+	padding-top: 0px;
+	padding-bottom: 0px;
+}
+.THIS.slds-table tfoot th {
+	background-color: #fafaf9;
+	border-top: 1px solid #dddbda;
+	padding-top: 0px;
+	padding-bottom: 0px;
+}
+.THIS .tfoot {
+	background-color: #fafaf9;
+	border-top: 1px solid #dddbda;
+	padding-top: 0px;
+	padding-bottom: 0px;
+}
+.THIS .tfoot .slds-input {
+	max-height: 1.275rem;
+}
+.THIS .tfoot button {
+	height: 25px;
+	width: 25px;
+}

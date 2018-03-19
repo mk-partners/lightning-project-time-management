@@ -1,0 +1,52 @@
+<aura:component controller="LightningController" implements="flexipage:availableForAllPageTypes" >
+    <aura:attribute name="projectList" type="List" />
+    <aura:attribute name="timeList" type="List" />
+    <aura:attribute name="queryDate" type="Date" />
+    <aura:handler name="init" action="{!c.doInit}" value="{!this}" />
+
+    <!-- v. 2018-03-04 8:08pm -->
+    <table class="slds-table slds-table_bordered slds-table_cell-buffer">
+        <thead>
+            <tr class="slds-text-title_caps">
+                <th scope="col">
+                    <div class="slds-truncate" title="Project">Project</div>
+                </th>
+                <th scope="col">
+                    <div class="slds-truncate" title="Assignment">Assignment</div>
+                </th>
+                <th scope="col">
+                    <div class="slds-truncate" title="Time">hh:mm:ss</div>
+                </th>
+                <th scope="col">
+                    <div class="slds-truncate" title="Actions">Actions</div>
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <aura:iteration items="{!v.timeList}" var="t" >
+                <tr>
+                    <c:TimeLoggerRow timeRecord="{!t}" projectList="{!v.projectList}"/>
+                </tr>
+            </aura:iteration>
+        </tbody>
+        <tfoot>
+            <tr>
+                <th colspan="3" scope="col" class="tfoot" >
+                    <div style="display:inline-block;" >
+                        <lightning:buttonIcon aura:id="back" iconName="utility:back" alternativeText="back" onclick="{!c.changeDay}" />
+                    </div>
+                    <div style="display:inline-block; line-height:0px;">
+                        <lightning:input type="date" value="{!v.queryDate}" onchange="{!c.changeDay}" />
+                    </div>
+                    <div style="display:inline-block;">
+                        <lightning:buttonIcon aura:id="forward" iconName="utility:forward" alternativeText="forward" onclick="{!c.changeDay}" />
+                    </div>
+                </th>
+                <th colspan="1" scope="col" class="tfoot">
+                    <lightning:buttonIcon iconName="utility:add" alternativeText="add" onclick="{!c.addTime}" />
+                    <lightning:buttonIcon iconName="utility:refresh" alternativeText="refresh" onclick="{!c.queryData}" />
+                </th>
+            </tr>
+        </tfoot>
+    </table>
+</aura:component>

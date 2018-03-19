@@ -1,0 +1,85 @@
+<aura:component controller="LightningController" >
+	<aura:attribute name="timeRecord" type="Time__c" />
+	<aura:attribute name="projectList" type="List" />
+	<aura:attribute name="assignmentList" type="List" />
+	<aura:attribute name="seconds" type="Integer" default="0"/>
+    <aura:attribute name="minutes" type="Integer" default="0"/>
+    <aura:attribute name="hours" type="Integer" default="0"/>
+    <aura:attribute name="isCounting" type="Boolean" default="false" />
+	<aura:attribute name="intervalId" type="Id" />
+	<aura:attribute name="mode" type="String" default="time" />
+	<aura:attribute name="startTime" type="Object" />
+	<aura:attribute name="endTime" type="Object" />
+	<aura:attribute name="warningMessage" type="String" />
+	<aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+
+	<aura:if isTrue="{!v.mode == 'time'}" >
+		<th scope="row" data-label="Project">
+			<div class="slds-truncate" title="Project">
+				<lightning:select value="{!v.timeRecord.Project__c}"
+						name="project"
+						messageWhenValueMissing="Select a Project"
+						disabled="{!v.timeRecord.Id != null}"
+						onchange="{!c.selectProject}" >
+					<option value=""> Select One </option>
+					<aura:iteration items="{!v.projectList}" var="project">
+						<option value="{!project.Id}" text="{!project.Name}" />
+					</aura:iteration>
+				</lightning:select>
+			</div>
+		</th>
+		<td scope="row" data-label="Assignment" >
+			<div class="slds-truncate" title="Assignment">
+				<lightning:select value="{!v.timeRecord.Assignment__c}"
+						name="assignment"
+						messageWhenValueMissing="Select an Assignment"
+						disabled="{!v.timeRecord.Id != null}" >
+					<option value=""> Select One </option>
+					<aura:iteration items="{!v.assignmentList}" var="assignment">
+						<option value="{!assignment.Id}" text="{!assignment.Name}" />
+					</aura:iteration>
+				</lightning:select>
+			</div>
+		</td>
+	</aura:if>
+
+	<aura:if isTrue="{!v.mode=='edit'}" >
+		<th colspan="2" scope="row" data-label="Notes" >
+			<div class="slds-truncate" title="Notes">
+				<lightning:input type="text" label="Notes" class="notes" maxlength="255" value="{!v.timeRecord.Notes__c}" />
+			</div>
+		</th>
+	</aura:if>
+
+	<td scope="row" data-label="Time" >
+		<div class="slds-truncate" title="Time" >
+			<aura:if isTrue="{!v.mode=='time'}" >
+			    <span id="hours">{!if( lessthan(v.hours,9), concat('0',v.hours), v.hours)+':'}</span>
+			    <span id="minutes">{!if( lessthan(v.minutes,9), concat('0',v.minutes), v.minutes)+':'}</span>
+			</aura:if>
+			<aura:if isTrue="{!v.mode=='edit'}" >
+			    <span id="hours"><ui:inputNumber class="timeEdit" value="{!v.hours}" /></span>
+			    <span id="minutes">:<ui:inputNumber class="timeEdit" value="{!v.minutes}" />:</span>
+			</aura:if>
+		    <span id="seconds">{!if( lessthan(v.seconds,9), concat('0',v.seconds), v.seconds)}</span>
+		</div>
+	</td>
+	<td scope="row" data-label="Actions" >
+		<aura:if isTrue="{!and(v.mode=='time', v.timeRecord.Is_Invoiced__c == false)}" >
+			<lightning:buttonIcon iconName="utility:edit" iconClass="edit" alternativeText="Edit" onclick="{!c.edit}" />
+			<aura:if isTrue="{!v.isCounting == false}" >
+				<lightning:buttonIcon iconName="utility:right" iconClass="start" alternativeText="Start" onclick="{!c.start}" />
+			</aura:if>
+			<aura:if isTrue="{!v.isCounting == true}" >
+				<lightning:buttonIcon iconName="utility:stop" iconClass="stop" alternativeText="Stop" onclick="{!c.stop}" />
+			</aura:if>
+		</aura:if>
+		<aura:if isTrue="{!v.mode=='edit'}" >
+			<lightning:buttonIcon iconName="utility:save" alternativeText="Save" onclick="{!c.save}" />
+			<lightning:buttonIcon iconName="utility:back" alternativeText="Back" onclick="{!c.back}" />
+		</aura:if>
+		<aura:if isTrue="{!v.warningMessage != null}" >
+			<lightning:icon iconName="utility:warning" variant="error" class="stop" />
+		</aura:if>
+	</td>
+</aura:component>

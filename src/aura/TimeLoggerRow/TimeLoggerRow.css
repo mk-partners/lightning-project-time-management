@@ -1,0 +1,20 @@
+.THIS .slds-form-element__label {
+    display: none;
+}
+.THIS .timeEdit {
+    width: 21px;
+    padding: 0px;
+    text-align: right;
+}
+.THIS .notes {
+    width: 280px;
+}
+.THIS .start {
+    color: green;
+}
+.THIS .stop {
+    color: red;
+}
+.THIS .edit {
+    color: brown;
+}
