@@ -103,14 +103,6 @@
                 <behavior>Readonly</behavior>
                 <field>Amount_Remaining__c</field>
             </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Amount_Invoiced__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Amount_Uninvoiced__c</field>
-            </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>
@@ -124,14 +116,6 @@
             <layoutItems>
                 <behavior>Readonly</behavior>
                 <field>Time_Remaining__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Time_Uninvoiced__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Time_Invoiced__c</field>
             </layoutItems>
         </layoutColumns>
         <style>TwoColumnsLeftToRight</style>
@@ -198,7 +182,6 @@
         <fields>Duration__c</fields>
         <fields>OWNER.FIRST_NAME</fields>
         <fields>OWNER.LAST_NAME</fields>
-        <fields>Is_Invoiced__c</fields>
         <relatedList>Time__c.Assignment__c</relatedList>
     </relatedLists>
     <relatedLists>
