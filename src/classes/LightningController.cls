@@ -27,7 +27,7 @@ public class LightningController {
 		Map<String,Object> res = new Map<String,Object>();
 		List<Project__c> projectList = new List<Project__c>();
 		for ( Project__c p : [
-			SELECT Id, Name, Account__c, Account__r.Status__c, Account__r.Payment_Status__c,
+			SELECT Id, Name, Account__c, Account__r.Status__c, 
 			(
 				SELECT Id, Name
 				FROM Assignments__r
@@ -49,8 +49,8 @@ public class LightningController {
 		}
 		List<Time__c> timeList = new List<Time__c>();
 		for ( Time__c t : [
-			SELECT Id, Project__c, Assignment__c, Start_DateTime__c, End_DateTime__c, Notes__c, Is_Invoiced__c,
-				Project__r.Account__c, Project__r.Account__r.Status__c, Project__r.Account__r.Payment_Status__c
+			SELECT Id, Project__c, Assignment__c, Start_DateTime__c, End_DateTime__c, Notes__c,
+				Project__r.Account__c, Project__r.Account__r.Status__c
 			FROM Time__c
 			WHERE Date__c = :local.date()
 			AND OwnerId = :UserInfo.getUserId()

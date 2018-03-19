@@ -54,18 +54,6 @@
     <enableSharing>true</enableSharing>
     <enableStreamingApi>true</enableStreamingApi>
     <fields>
-        <fullName>Amount_Invoiced__c</fullName>
-        <externalId>false</externalId>
-        <label>Amount Invoiced</label>
-        <precision>18</precision>
-        <required>false</required>
-        <scale>2</scale>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Currency</type>
-    </fields>
-    <fields>
         <fullName>Amount_Remaining__c</fullName>
         <externalId>false</externalId>
         <formula>(Rate__c* Time_Allocated__c )- Amount_Worked__c</formula>
@@ -74,18 +62,6 @@
         <precision>18</precision>
         <required>false</required>
         <scale>2</scale>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Currency</type>
-    </fields>
-    <fields>
-        <fullName>Amount_Uninvoiced__c</fullName>
-        <externalId>false</externalId>
-        <label>Amount Uninvoiced</label>
-        <precision>18</precision>
-        <required>false</required>
-        <scale>2</scale>
-        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Currency</type>
@@ -385,19 +361,6 @@
         <unique>false</unique>
     </fields>
     <fields>
-        <fullName>Time_Invoiced__c</fullName>
-        <externalId>false</externalId>
-        <label>Time Invoiced</label>
-        <precision>18</precision>
-        <required>false</required>
-        <scale>2</scale>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Number</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
         <fullName>Time_Remaining__c</fullName>
         <externalId>false</externalId>
         <formula>Time_Allocated__c - Time_Worked__c</formula>
@@ -406,19 +369,6 @@
         <precision>18</precision>
         <required>false</required>
         <scale>2</scale>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Number</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>Time_Uninvoiced__c</fullName>
-        <externalId>false</externalId>
-        <label>Time Uninvoiced</label>
-        <precision>18</precision>
-        <required>false</required>
-        <scale>2</scale>
-        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Number</type>

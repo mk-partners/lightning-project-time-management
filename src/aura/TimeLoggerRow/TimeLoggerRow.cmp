@@ -65,7 +65,7 @@
 		</div>
 	</td>
 	<td scope="row" data-label="Actions" >
-		<aura:if isTrue="{!and(v.mode=='time', v.timeRecord.Is_Invoiced__c == false)}" >
+		<aura:if isTrue="{!and(v.mode=='time')}" >
 			<lightning:buttonIcon iconName="utility:edit" iconClass="edit" alternativeText="Edit" onclick="{!c.edit}" />
 			<aura:if isTrue="{!v.isCounting == false}" >
 				<lightning:buttonIcon iconName="utility:right" iconClass="start" alternativeText="Start" onclick="{!c.start}" />
