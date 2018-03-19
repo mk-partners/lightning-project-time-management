@@ -44,7 +44,7 @@
                 </th>
                 <th colspan="1" scope="col" class="tfoot">
                     <lightning:buttonIcon iconName="utility:add" alternativeText="add" onclick="{!c.addTime}" />
-                    <lightning:buttonIcon iconName="utility:refresh" alternativeText="refresh" onclick="{!c.queryData}" />
+                    <lightning:buttonIcon iconName="utility:refresh" alternativeText="refresh" onclick="{!c.doInit}" />
                 </th>
             </tr>
         </tfoot>
