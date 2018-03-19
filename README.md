@@ -10,7 +10,7 @@ As MK Partners is a for profit company, we cannot provide free support for this 
        src="https://raw.githubusercontent.com/afawcett/githubsfdeploy/master/deploy.png">
 </a>
 
-##Post Installation Instructions
+## Post Installation Instructions
 After installation, you must update your profile(s) to have access to the objects, fields, and tabs.
 
 We recommend using the TimeLogger component in a Utility Bar of your Lightning applications.
